@@ -14,16 +14,25 @@ class RomanNumeralsHelper
     'I' => 1
     ];
 
-    public static function romanNumeralIsValid(string $numeralString): bool
+    public static function romanNumeralIsValidCharacters(string $numeralString): bool
     {
     //Convert all characters to uppercase and check if string contains illegal characters
     if(!preg_match("/^[".self::LEGAL_ROMAN_NUMERAL_CHARACTERS."]+$/", strtoupper($numeralString))) {
         return false;
     }
     return true;
+    }
 
-    //Alternative ternary
-    //return !preg_match("/^[".self::LEGAL_ROMAN_NUMERAL_CHARACTERS."]+$/", $romanNumeralStringUC) ? false : true;
+    public static function romanNumeralIsValidOrder(string $numeralString): bool
+    {
+        //Convert all characters to uppercase and check if characters are in correct order
+        if(!preg_match('/^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/', strtoupper($numeralString))) {
+            return false;
+        }
+        return true;
+
+        //Alternative ternary
+        //return !preg_match("/^[".self::LEGAL_ROMAN_NUMERAL_CHARACTERS."]+$/", $romanNumeralStringUC) ? false : true;
     }
 
     public static function convertEasy(string $numeralString): int

@@ -15,9 +15,14 @@ class RomanNumeralsApiController extends Controller
             return $this->returnResponse('romanNumeralString is required', 400);
         }
 
+        //Verify that "romanNumeralString" only contains one character
+        if(strlen($request->input('romanNumeralString')) > 1) {
+            return $this->returnResponse('romanNumeralString can only be one character', 400);
+        }
+
         //Verify that romanNumeralString only contains legal characters
-        if(!RomanNumeralsHelper::romanNumeralIsValid($request->input('romanNumeralString'))) {
-            return $this->returnResponse('romanNumeralString contains at least one illegal character', 400);
+        if(!RomanNumeralsHelper::romanNumeralIsValidCharacters($request->input('romanNumeralString'))) {
+            return $this->returnResponse('romanNumeralString contains illegal character', 400);
         }
 
         //Convert to int
@@ -35,8 +40,13 @@ class RomanNumeralsApiController extends Controller
         }
 
         //Verify that romanNumeralString only contains legal characters
-        if(!RomanNumeralsHelper::romanNumeralIsValid($request->input('romanNumeralString'))) {
+        if(!RomanNumeralsHelper::romanNumeralIsValidCharacters($request->input('romanNumeralString'))) {
             return $this->returnResponse('romanNumeralString contains at least one illegal character', 400);
+        }
+
+        //Verify that romanNumeralString have characters in valid order
+        if(!RomanNumeralsHelper::romanNumeralIsValidOrder($request->input('romanNumeralString'))) {
+            return $this->returnResponse('romanNumeralString character invalid order', 400);
         }
 
         //Convert to int
