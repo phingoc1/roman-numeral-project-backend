@@ -1,66 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Oppgave fullstackutvikler
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Oppgavene kan løses i valgfritt språk / teknologistack, men må være en kombinasjon av HTML, CSS og valgfritt språk for håndtering av logikken. Hvor mange av og i hvilken rekkefølge du løser de valgfrie oppgavene velger du selv, men du bør velge minimum 2-3 for en juniorstilling og 5-6 for en seniorstilling.
+Noen kan være tidkrevende og det er ikke forventet at man løser alle.
 
-## About Laravel
+Det er ingen krav om at løsningen skal være tilgjengelig utenom på din lokale maskin. Vi går igjennom kode og sluttresultat ved at du deler skjerm på Teams.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Kode sendes inn som en zip-fil, tarball eller link til et Git-repository et par dager før intervju til devnull@uke.oslo.kommune.no. Hvis du bruker Git, sørg for at det er et offentlig repository slik at vi kan se koden.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Obligatorisk oppgave
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Lag et program hvor man kan angi romertall i sin enkleste form og få verdien ut som vanlig tall. F.eks. I = 1, V = 5, X = 10, L = 50, C = 100.
 
-## Learning Laravel
+## Valgfrie oppgaver
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Valgfri oppgave - mer kompleksistet
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Utvid programmet til å kunne angi mer komplekse tall, f.eks IV, XII, XIV, IVC, CCCXLVI og MIX.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Valgfri oppgave - kvalitetssikring
 
-## Laravel Sponsors
+- Legg til tester som viser at programmet fungerer som tiltenkt
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Valgfri oppgave - brukergrensesnitt
 
-### Premium Partners
+- Bruk Oslo kommune sitt komponentbibliotek (https://styleguide.oslo.kommune.no)
+- Som et minimum, ta i bruk følgende komponenter:
+  - Grid for å plassere elementer
+  - Header og footer
+  - Button
+  - Input text
+- Utvid gjerne med egen CSS hvis ønskelig
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Valgfri oppgave - universell utforming
 
-## Contributing
+- Gjør programmet UU-vennlig (oppnå WCAG 2.1 AA).
+- Legg til en feilmelding hvis man forsøker sende inn skjemaet uten å fylle ut tekstfeltet.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Valgfri oppgave - Skille frontend og backend
 
-## Code of Conduct
+- Flytt kalkuleringen av romertall til et REST-API som kan nås via HTTP.
+- Hold frontend separat fra backend (eget prosjekt) og bruk HTTP for å kommunisere mellom frontend og backend.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Valgfri oppgave - containerisering
 
-## Security Vulnerabilities
+- Kjør løsningen(e) i en eller flere Docker-containere.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Valgfri oppgave - versjonskontroll
 
-## License
+- Legg prosjektet under versjonskontroll med Git.
+- Vis bruk av Git ved å lage en feature branch for hver valgfri oppgave du har valgt å gjøre og commits innenfor hver branch.
+- Samle alle feature branches i en develop/test/main branch før gjennomgang slik at vi kan se programmet fungere i sin helhet.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Valgfri oppgave - database
+
+- Lagre historikk over alle konverteringer og når de skjedde i en relasjonsdatabase eller key/value-store.
+
+### Valgfri oppgave - sikkerhet
+
+- Følg OWASP sine retningslinjer for sikkerhet.
+- Sørg for at all brukerdata validerer og gir en feilmelding hvis den ikke er gyldig.
+
+### Valgfri oppgave - frontend bygg
+
+- Bruk et byggeverktøy for å bygge Oslo styleguide fra kilde, f.eks. Webpack eller Parcel.
+
+## Tips
+
+- Romertall: https://dev.to/thefern/roman-numeral-converter-3l11
+- Universell utforming: https://www.uutilsynet.no/
+- Ferdig CSS fra komponentbiblioteket: https://ukeweb-styleguide-cdn.s3.eu-central-1.amazonaws.com/0.99.104/osg.css
+- OWASP Top 10: https://owasp.org/Top10/
