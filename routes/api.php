@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/roman-numerals-easy', [RomanNumeralsApiController::class, 'easy']);
+Route::post('/roman-numerals-advanced', [RomanNumeralsApiController::class, 'advanced']);

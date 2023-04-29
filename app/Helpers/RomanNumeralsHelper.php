@@ -31,4 +31,39 @@ class RomanNumeralsHelper
         return self::ROMAN_NUMERALS[strtoupper($numeralString[0])];
     }
 
+    public static function convertAdvanced(string $numeralString): int
+    {
+        //Get length of string before loop, so we don't have to check length at each iteration
+        $stringLength = strlen($numeralString);
+
+        //Convert string to uppercase, so it will be easier to work with
+        $numeralString = strtoupper($numeralString);
+
+        //Var for storing sum
+        $sumValues = 0;
+
+        //Loop over characters
+        for($i = 0; $i < $stringLength; $i++) {
+
+            //Get value of current character
+            $currentLetterValue = self::ROMAN_NUMERALS[$numeralString[$i]];
+
+            //Checking if this character is NOT the last character
+            if($i + 1 < $stringLength) {
+
+                //Check next character value
+                $nextLetterValue = self::ROMAN_NUMERALS[$numeralString[$i+1]];
+
+                //If current character value is greater or equal to next character value, add.
+                //If next character value is lower than current, subtract.
+                if($currentLetterValue >= $nextLetterValue) $sumValues += $currentLetterValue;
+                if($currentLetterValue < $nextLetterValue) $sumValues -= $currentLetterValue;
+            }
+
+            //If last character, add
+            if($i + 1 == $stringLength) $sumValues += $currentLetterValue;
+        }
+
+        return $sumValues;
+    }
 }
