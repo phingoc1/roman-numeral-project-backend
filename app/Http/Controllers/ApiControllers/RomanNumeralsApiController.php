@@ -27,6 +27,27 @@ class RomanNumeralsApiController extends Controller
         return $this->returnResponse($result, 200);
     }
 
+    public function advanced(Request $request)
+    {
+        //Verify that request contains key "romanNumeralString"
+        if(!$request->input('romanNumeralString')) {
+            return $this->returnResponse('romanNumeralString is required', 400);
+        }
+
+        //Verify that romanNumeralString only contains legal characters
+        if(!RomanNumeralsHelper::romanNumeralIsValid($request->input('romanNumeralString'))) {
+            return $this->returnResponse('romanNumeralString contains at least one illegal character', 400);
+        }
+
+        //Convert to int
+        $result = RomanNumeralsHelper::convertAdvanced($request->input('romanNumeralString'));
+
+        //return result
+        return $this->returnResponse($result, 200);
+
+
+    }
+
     private function returnResponse(string $message, string $statusCode): object
     {
         return response([
