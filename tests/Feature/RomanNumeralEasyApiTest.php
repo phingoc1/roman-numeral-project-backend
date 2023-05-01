@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class RomanNumeralEasyTest extends TestCase
+class RomanNumeralEasyApiTest extends TestCase
 {
     public function test_easy_roman_numeral_conversion_missing_data()
     {
@@ -110,6 +110,20 @@ class RomanNumeralEasyTest extends TestCase
             ->assertJson([
                 'status' => 'ok',
                 'payload' => 100,
+            ]);
+    }
+
+    public function test_easy_roman_numeral_conversion_m()
+    {
+        $data = [
+            'romanNumeralString' => 'm'
+        ];
+
+        $this->json('POST', 'api/roman-numerals-easy', $data, ['Accept' => 'application/json'])
+            ->assertStatus(200)
+            ->assertJson([
+                'status' => 'ok',
+                'payload' => 1000,
             ]);
     }
 }
