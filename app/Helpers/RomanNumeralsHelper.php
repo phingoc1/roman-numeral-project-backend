@@ -1,8 +1,14 @@
 <?php
 namespace App\Helpers;
 
+use App\Models\RomanNumeralConversion;
+
 class RomanNumeralsHelper
 {
+    public const ROMAON_NUMERAL_CONVERSION_METHOD = [
+        1 => 'api',
+        2 => 'laravel-frontend',
+    ];
     private const LEGAL_ROMAN_NUMERAL_CHARACTERS_REGEX = 'IVXLCDM';
     private const LEGAL_ROMAN_NUMERAL_CHARACTER_ORDER_REGEX = 'M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})';
     private const ROMAN_NUMERALS = [
@@ -72,5 +78,14 @@ class RomanNumeralsHelper
         }
 
         return $sumValues;
+    }
+
+    public static function saveToDb(string $value, int $result, string $method): void
+    {
+        $save = new RomanNumeralConversion();
+        $save->method = $method;
+        $save->roman_value = $value;
+        $save->value = $result;
+        $save->save();
     }
 }

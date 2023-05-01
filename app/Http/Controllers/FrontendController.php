@@ -42,6 +42,9 @@ class FrontendController extends Controller
         //Get value
         $result = RomanNumeralsHelper::convertEasy($request->input('romanNumeral'));
 
+        //Save to database
+        $this->saveToDb($request->input('romanNumeral'), $result, RomanNumeralsHelper::ROMAON_NUMERAL_CONVERSION_METHOD[2]);
+
         return view('easy')->with(['result' => ['input' => strtoupper($request->input('romanNumeral')), 'value' => $result]]);
     }
 
@@ -77,6 +80,14 @@ class FrontendController extends Controller
         //Get value
         $result = RomanNumeralsHelper::convertAdvanced($request->input('romanNumeral'));
 
+        //Save to database
+        $this->saveToDb($request->input('romanNumeral'), $result, RomanNumeralsHelper::ROMAON_NUMERAL_CONVERSION_METHOD[2]);
+
         return view('advanced')->with(['result' => ['input' => strtoupper($request->input('romanNumeral')), 'value' => $result]]);
+    }
+
+    private function saveToDb(string $value, int $result, string $method): void
+    {
+        RomanNumeralsHelper::saveToDb($value, $result, $method);
     }
 }

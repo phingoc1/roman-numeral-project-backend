@@ -28,6 +28,9 @@ class RomanNumeralsApiController extends Controller
         //Convert to int
         $result = RomanNumeralsHelper::convertEasy($request->input('romanNumeralString'));
 
+        //Save to database
+        $this->saveToDb($request->input('romanNumeralString'), $result, RomanNumeralsHelper::ROMAON_NUMERAL_CONVERSION_METHOD[1]);
+
         //return result
         return $this->returnResponse($result, 200);
     }
@@ -52,10 +55,11 @@ class RomanNumeralsApiController extends Controller
         //Convert to int
         $result = RomanNumeralsHelper::convertAdvanced($request->input('romanNumeralString'));
 
+        //Save to database
+        $this->saveToDb($request->input('romanNumeralString'), $result, RomanNumeralsHelper::ROMAON_NUMERAL_CONVERSION_METHOD[1]);
+
         //return result
         return $this->returnResponse($result, 200);
-
-
     }
 
     private function returnResponse(string $message, string $statusCode): object
@@ -65,5 +69,10 @@ class RomanNumeralsApiController extends Controller
             'payload' => $message
         ], $statusCode)
             ->header('Content-Type', 'application/json');
+    }
+
+    private function saveToDb(string $value, int $result, string $method): void
+    {
+        RomanNumeralsHelper::saveToDb($value, $result, $method);
     }
 }
