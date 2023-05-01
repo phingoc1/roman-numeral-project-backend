@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+
+Route::get('/easy', [FrontendController::class, 'easy'])->name('easy');
+Route::post('/easy', [FrontendController::class, 'easyConvert'])->name('easyConvert');
+
+Route::get('/advanced', [FrontendController::class, 'advanced'])->name('advanced');
+Route::post('/advanced', [FrontendController::class, 'advancedConvert'])->name('advancedConvert');
