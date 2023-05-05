@@ -68,7 +68,7 @@ class RomanNumeralsHelper
                 $nextLetterValue = self::ROMAN_NUMERALS[$numeralString[$i+1]];
 
                 //If current character value is greater or equal to next character value, add.
-                //If next character value is lower than current, subtract.
+                //If next character value is greater than current, subtract.
                 if($currentLetterValue >= $nextLetterValue) $sumValues += $currentLetterValue;
                 if($currentLetterValue < $nextLetterValue) $sumValues -= $currentLetterValue;
             }
