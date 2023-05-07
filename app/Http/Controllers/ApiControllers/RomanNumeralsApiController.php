@@ -58,11 +58,17 @@ class RomanNumeralsApiController extends Controller
         //Save to database
         $this->saveToDb($request->input('romanNumeralString'), $result, RomanNumeralsHelper::ROMAON_NUMERAL_CONVERSION_METHOD[1]);
 
+        //Prepping response payload
+        $payload = [
+            'result' => $result,
+            'romanNumeral' => strtoupper($request->input('romanNumeralString')),
+        ];
+
         //return result
-        return $this->returnResponse($result, 200);
+        return $this->returnResponse($payload, 200);
     }
 
-    private function returnResponse(string $message, string $statusCode): object
+    private function returnResponse(string|array $message, string $statusCode): object
     {
         return response([
             'status' => $statusCode[0] == 4 ? 'error' : 'ok',
