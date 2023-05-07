@@ -53,7 +53,7 @@ class RomanNumeralAdvancedApiTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'status' => 'ok',
-                'payload' => 4,
+                'payload' => ['result' => 4, 'romanNumeral' => 'IV'],
             ]);
     }
 
@@ -67,7 +67,7 @@ class RomanNumeralAdvancedApiTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'status' => 'ok',
-                'payload' => 12,
+                'payload' => ['result' => 12, 'romanNumeral' => 'XII'],
             ]);
     }
 
@@ -81,7 +81,7 @@ class RomanNumeralAdvancedApiTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'status' => 'ok',
-                'payload' => 14,
+                'payload' => ['result' => 14, 'romanNumeral' => 'XIV'],
             ]);
     }
 
@@ -108,7 +108,7 @@ class RomanNumeralAdvancedApiTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'status' => 'ok',
-                'payload' => 346,
+                'payload' => ['result' => 346, 'romanNumeral' => 'CCCXLVI'],
             ]);
     }
 
@@ -122,7 +122,7 @@ class RomanNumeralAdvancedApiTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'status' => 'ok',
-                'payload' => 1009,
+                'payload' => ['result' => 1009, 'romanNumeral' => 'MIX'],
             ]);
     }
 
